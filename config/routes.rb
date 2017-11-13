@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :tasks
+
 authenticated :user do
-    root to: 'users#show', as: :authenticated_root
+    root to: 'tasks#index', as: :authenticated_root
   end
 
 devise_for :users
+
+  get 'task_new' => "tasks#new"
 
   get 'users/show'
 

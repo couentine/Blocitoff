@@ -9,6 +9,7 @@ authenticated :user do
 devise_for :users
 
   get 'task_new' => "tasks#new"
+  get 'task_index' => "tasks#index"
 
   get 'users/show'
 

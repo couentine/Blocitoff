@@ -12,7 +12,7 @@ users = User.all
 10.times do |c|
     task = Task.create!(
         name: Faker::StarWars.character,
-        user_id: "1",
+        user: users.sample,
         status: Faker::Boolean.boolean
     )
 end

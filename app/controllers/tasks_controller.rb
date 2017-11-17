@@ -62,6 +62,18 @@ class TasksController < ApplicationController
     end
   end
 
+  def reloaded
+    respond_to do |format|
+      if @task.reloaded(task_params)
+        format.html { redirect_to task_index, notice: 'Task was successfully Updated.' }
+        format.json { render :show, status: :ok, location: @task }
+      else
+        format.html { render :edit }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task

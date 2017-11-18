@@ -6,4 +6,6 @@ class ApplicationController < ActionController::Base
       #  redirect_to users_show_path
   # end
 
+
+
 end

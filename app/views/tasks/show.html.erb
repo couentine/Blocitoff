@@ -9,7 +9,14 @@
   <strong>User:</strong>
   <%= @task.user.email %>
 </p>
-
+  <strong>Date:</strong>
+  <p><%= "Created the #{@task.created_at.strftime("%m-%d-%Y")}" %></p>
+  <p><%= "#{distance_of_time_in_words(@task.created_at + 7.days, Time.now, include_seconds: false)} left." %>
+  <% if @task.created_at < @task.created_at - 6.days %>
+     <p>NOOOOOOOOOOOOOOOOOOOOOO RUUUSH</p>
+    <% else %>
+    <p>Chill out - Take your time you have </p>
+    <%end%></p>
 <p>
   <strong>Status:</strong>
   <% if @task.status == true %>
